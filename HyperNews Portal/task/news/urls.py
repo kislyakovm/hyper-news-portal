@@ -1,5 +1,8 @@
 from django.urls import path
-from . import views
+from news.views import WorkWithJSON
+
 
 urlpatterns = [
-    path('', views.ComingSoonView)]
+
+    path('', WorkWithJSON.as_view()),
+]
