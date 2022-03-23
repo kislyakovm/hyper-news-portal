@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<h2>Hyper news</h2>
+
+{% regroup context|dictsortreversed:"created" by created|slice:":-9" as context_list %}
+
+{% for create in context_list %}
+    <h4>{{ create.grouper }}</h4>
+<ul>
+    {% for c in create.list %}
+        <li><a href="/news/{{ c.link }}/">{{ c.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endfor %}
+
+<li><a href="/news/create/">create</a></li>
